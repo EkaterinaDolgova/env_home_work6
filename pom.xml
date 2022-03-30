@@ -8,8 +8,8 @@
 		<version>2.5.10</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>skyrpo</groupId>
-	<artifactId>calculator</artifactId>
+	<groupId>sky.pro</groupId>
+	<artifactId>env_home_work6</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>env_home_work6</name>
 	<description>Demo project for Spring Boot</description>

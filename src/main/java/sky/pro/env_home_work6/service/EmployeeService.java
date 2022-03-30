@@ -9,7 +9,8 @@ import java.util.Arrays;
 @Service
 public interface EmployeeService {
     public String getEmployee  (Integer number);
-    public String addArray(String firstname, String lastname);
-    public String deleteArray(String firstname, String lastname);
-    public String searchArray(String firstname, String lastname);
+    public void  addEmployee(Employee employees);
+    String searchEmployee(Employee employee);
+    String deleteEmployee(Employee employee);
+
 }
