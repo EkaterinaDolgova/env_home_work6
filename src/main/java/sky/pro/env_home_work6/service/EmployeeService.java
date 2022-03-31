@@ -8,8 +8,9 @@ import java.util.Arrays;
 
 @Service
 public interface EmployeeService {
-    public String getEmployee  (Integer number);
-    public void  addEmployee(Employee employees);
+    String listEmployee();
+    String getEmployee  (Integer number);
+    void  addEmployee(Employee employees);
     String searchEmployee(Employee employee);
     String deleteEmployee(Employee employee);
 

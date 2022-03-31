@@ -15,18 +15,18 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
-    @GetMapping(path = "/employee")
-    public String Employee(@RequestParam("number") Integer number) {
+    @GetMapping(path = "/employee/list")
+    public String EmployeeSp() {
+        return employeeService.listEmployee();
+    }
 
-        try {
+    @GetMapping(path = "/employee")
+    public String EmployeeS(@RequestParam("number") Integer number) {
             return employeeService.getEmployee(number);
-        } catch (EmployeeNotFoundException e) {
-            return "Попробуйте другой номер!";
-        }
     }
 
     @GetMapping(path = "/employee/add")
-    public String Employee(@RequestParam String firstname, @RequestParam String lastname) {
+    public String EmployeeAdd(@RequestParam String firstname, @RequestParam String lastname) {
         Employee employee = new Employee(firstname, lastname);
         employeeService.addEmployee(employee);
         return "Сотрудник добавлен";

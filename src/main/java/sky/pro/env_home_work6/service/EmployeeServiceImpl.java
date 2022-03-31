@@ -1,9 +1,9 @@
 package sky.pro.env_home_work6.service;
 
+import com.google.gson.Gson;
 import org.springframework.stereotype.Service;
 import sky.pro.env_home_work6.domain.Employee;
 import sky.pro.env_home_work6.exception.EmployeeNotFoundException;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +15,14 @@ public class EmployeeServiceImpl implements EmployeeService {
             new Employee("Михаил", "Сидоров"),
             new Employee("Максим", "Топорков")
     ));
+
+
+    @Override
+    public String listEmployee() {
+        Gson gson = new Gson();
+        String jsonCartList =gson.toJson(employees);
+        return jsonCartList;
+    }
 
     @Override
     public String getEmployee(Integer number) {
