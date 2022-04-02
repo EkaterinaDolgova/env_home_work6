@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Service;
 import sky.pro.env_home_work6.domain.Employee;
 import sky.pro.env_home_work6.exception.EmployeeNotFoundException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,27 +18,19 @@ public class EmployeeServiceImpl implements EmployeeService {
             new Employee("Максим", "Топорков")
     ));
 
-
     @Override
-    public String listEmployee() {
-            try {
-                ObjectMapper objectMapper = new ObjectMapper();
-                String jsonString = objectMapper.writeValueAsString(employees);
-                return jsonString;
-            } catch (JsonProcessingException e) {
-                return "Ошибка";
-            }
-        }
-
+    public List<Employee> getEmployeeList() {
+        return employees;
+    }
 
     @Override
     public String getEmployee(Integer number) {
-         Employee employee;
+        Employee employee;
         if (number >= employees.size()) {
             throw new EmployeeNotFoundException("Ошибка, номер сотрудника больше, чем сотрудников");
         }
         employee = employees.get(number);
-         String EmployeeDescription = ""
+        String EmployeeDescription = ""
                 + employee.getName() + " "
                 + employee.getFamily();
         return EmployeeDescription;

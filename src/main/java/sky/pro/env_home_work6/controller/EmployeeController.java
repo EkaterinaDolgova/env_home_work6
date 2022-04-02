@@ -1,12 +1,12 @@
 package sky.pro.env_home_work6.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import sky.pro.env_home_work6.domain.Employee;
-import sky.pro.env_home_work6.exception.EmployeeNotFoundException;
 import sky.pro.env_home_work6.service.EmployeeService;
+
+import java.util.List;
 
 @RestController
 public class EmployeeController {
@@ -16,14 +16,14 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
-    @GetMapping(path = "/employee/list")
-    public String employeeSp() {
-        return employeeService.listEmployee();
+    @GetMapping("/employee/list")
+    public List<Employee> printEmployeeList() {
+        return employeeService.getEmployeeList();
     }
 
     @GetMapping(path = "/employee")
     public String employeeS(@RequestParam("number") Integer number) {
-            return employeeService.getEmployee(number);
+        return employeeService.getEmployee(number);
     }
 
     @GetMapping(path = "/employee/add")
