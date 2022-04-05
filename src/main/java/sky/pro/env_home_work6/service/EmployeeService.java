@@ -3,7 +3,7 @@ package sky.pro.env_home_work6.service;
 import org.springframework.stereotype.Service;
 import sky.pro.env_home_work6.domain.Employee;
 
-import java.util.List;
+import java.util.Map;
 
 @Service
 public interface EmployeeService {
@@ -13,8 +13,8 @@ public interface EmployeeService {
 
     String searchEmployee(Employee employee);
 
-    String deleteEmployee(Employee employee);
+    String deleteEmployee(Integer id);
 
-    List<Employee> getEmployeeList();
+    Map<Integer, Employee> getEmployeeList();
 
 }

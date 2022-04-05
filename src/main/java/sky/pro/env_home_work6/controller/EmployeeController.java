@@ -7,6 +7,7 @@ import sky.pro.env_home_work6.domain.Employee;
 import sky.pro.env_home_work6.service.EmployeeService;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class EmployeeController {
@@ -17,7 +18,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/employee/list")
-    public List<Employee> printEmployeeList() {
+    public Map<Integer, Employee> printEmployeeList() {
         return employeeService.getEmployeeList();
     }
 
@@ -40,9 +41,9 @@ public class EmployeeController {
     }
 
     @GetMapping(path = "/employee/delete")
-    public String employeeDel(@RequestParam String firstname, @RequestParam String lastname) {
-        Employee employee = new Employee(firstname, lastname);
-        return employeeService.deleteEmployee(employee);
+    public String employeeDel(@RequestParam Integer id) {
+        // Employee employee = new Employee(id);
+        return employeeService.deleteEmployee(id);
     }
 
 
